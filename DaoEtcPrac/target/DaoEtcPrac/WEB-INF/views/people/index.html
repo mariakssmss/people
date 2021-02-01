@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org"><!--xmlns-указываем что используем шаьлонизатор таймлиф-->
+<head>
+    <meta charset="UTF-8">
+    <title>Все люди</title>
+</head>
+
+<body>
+<div th:each="person : ${people}"><!--Таймлиф и его возможность пройтись по коллекции пипл показывая всё в переменной персон-->
+    <a th:href="@{/people/{id}(id=${person.getId()})}"
+       th:text="${person.getName() + ', ' + person.getAge()}">user</a>
+    <!--также с помощью href таймлифа будет осуществляться переход на страницу по ссылке-->
+    <!--с помощью таймлифа юзер будет динамически изменяться на имя нашего человека, вызывается метод класа персон-->
+</div>
+
+<br/>
+<hr/>
+
+<a href="/people/new">Create new person</a>
+
+</body>
+
+</html>
